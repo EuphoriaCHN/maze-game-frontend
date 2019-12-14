@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Maze Game-Having Fun Time in Here!</title>
+    <meta name="description" content="Maze,Maze Game,XUST,Python,Course Design"/>
+    <meta name="keywords" content="Maze,Maze Game,XUST,Course Design"/>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="css/title.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+<!--主界面-->
+<div id="mainPage">
+    <div class="text-box">
+        <span class="dot" style="transform: matrix(1, 0, 0, 1, 670, -166);"></span>
+        <span class="dot" style="transform: matrix(1, 0, 0, 1, 595, -241);"></span>
+        <span class="dot" style="transform: matrix(1, 0, 0, 1, 495, -341);"></span>
+    </div>
+    <svg height="0" width="0">
+        <defs>
+            <clipPath id="svgTextPath">
+                <text x="150" y="140" textLength="800px" class="title">mage game</text>
+                <text x="340" y="345" textLength="415px" class="title" id="startTitle">start</text>
+                <text x="0" y="180" textLength="1100px" id="nowLoading">now loading&nbsp;&nbsp;&nbsp;</text>
+            </clipPath>
+        </defs>
+    </svg>
+    <a id="start">
+        <span class="animate-underline"></span>
+    </a>
+</div>
+
+<!--中转遮罩层-->
+<div id="mask"></div>
+
+<script src="js/loading.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/mainpage.js"></script>
+<script src="js/mask.js"></script>
+</body>
+</html>
