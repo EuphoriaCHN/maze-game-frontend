@@ -3,11 +3,6 @@
 (function (window, undefined) {
     // 主页逻辑
     jQuery(function () {
-        $(document.body).css({
-            width: document.documentElement.clientWidth,
-            height: document.documentElement.clientHeight
-        });
-
         // 当页面加载
         window.addEventListener('load', function (ev) {
             // 切换标题，隐藏 now loading
