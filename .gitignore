@@ -130,3 +130,8 @@ dmypy.json
 
 # IDEA
 .idea/
+
+# JS Libraries
+js/jquery-3.4.1.js
+js/jquery-3.4.1.min.js
+js/TweenMax.min.js
