@@ -1,0 +1,121 @@
+/*主页主体*/
+body {
+    background-color: #212121;
+}
+
+#mainPage {
+    position: absolute;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    top: 50%;
+    left: 50%;
+    margin-left: -550px;
+    margin-top: -200px;
+    /*border: 1px solid red;*/
+}
+
+.text-box {
+    width: 1100px;
+    height: 400px;
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    clip-path: url(#svgTextPath);
+    color: white;
+    background: #2fddc6;
+}
+
+.dot {
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.9;
+}
+
+.dot:nth-child(1) {
+    width: 150px;
+    height: 150px;
+    background: rgb(30, 207, 148);
+    z-index: 8;
+    transform: translateX(-175px) translateY(-175px);
+}
+
+.dot:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: rgb(28, 204, 195);
+    z-index: 7;
+    transform: translateX(-250px) translateY(-250px);
+}
+
+.dot:nth-child(3) {
+    width: 500px;
+    height: 500px;
+    background: rgb(18, 155, 247);
+    z-index: 6;
+    transform: translateX(-350px) translateY(-350px);
+}
+
+text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    font-size: 8rem;
+    text-transform: uppercase;
+}
+
+.title {
+    display: none;
+}
+
+#start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 30px;
+    margin-left: -212px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    height: 120px;
+    width: 425px;
+    display: none;
+    /*border: 1px solid #ff0000;*/
+    text-align: center;
+}
+
+#start:hover {
+    cursor: pointer;
+}
+
+.animate-underline {
+    width: 0;
+    height: 2px;
+    background-color: rgb(18, 155, 247);
+    bottom: -4px;
+    left: 50%;
+    margin-left: 0;
+    position: absolute;
+}
+
+/*遮罩层*/
+#mask {
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    background-color: #212121;
+}
