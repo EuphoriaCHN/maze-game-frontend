@@ -19,10 +19,15 @@
                 let height = mask.height();
 
                 if (width >= 1100) {
+                    // 遮罩层覆盖了全部的主页面
                     window.clearInterval(mask.get(0).timerInterval);
-                    mask.hide().css('z-index', 0);
-                    $('#main').fadeIn(400).css('display', 'flex');
-                    $('#mainPage').hide();
+                    mask.hide().css('z-index', 0); // 隐藏遮罩层
+                    $('#main').fadeIn(400).css({
+                        display: 'flex'
+                    }); // 加载主体
+                    $('#mainPage').hide(); // 隐藏主页面
+
+                    window.loadingMaze(); // 加载迷宫
                 }
 
                 let change = Math.floor(((1100 - width)) / 10);
