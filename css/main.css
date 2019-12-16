@@ -6,10 +6,265 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    justify-content: space-around;
-    /*align-items: center;*/
+    padding: 60px 20px 20px;
+    position: relative;
 }
 
 #maze {
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: rgba(60, 60, 60, .3);
+}
 
+#mazeBody .row {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#mazeBody .col {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px dashed rgba(213, 213, 213, 0.41);
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: background-color .35s;
+    -moz-transition: background-color .35s;
+    -ms-transition: background-color .35s;
+    -o-transition: background-color .35s;
+    transition: background-color .35s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#mazeBody .wall {
+
+}
+
+#mazeBody .start {
+
+}
+
+#mazeBody .end {
+
+}
+
+#main #floatBar h2 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -15px;
+    color: #2fddc6;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 2em;
+}
+
+#main #floatBar #subFloatBar {
+    width: calc(100% - 40px);
+    height: 0;
+    top: 0;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    -ms-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main #floatBar:hover #subFloatBar {
+    height: 280px;
+}
+
+#subFloatBar #blockSelector,
+#subFloatBar #themeSelector,
+#subFloatBar #submitSelector {
+    height: 170px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    border-top: 2px solid #eeeeee;
+    border-bottom: 2px solid #eeeeee;
+}
+
+#subFloatBar #blockSelector:before,
+#subFloatBar #themeSelector:before,
+#subFloatBar #submitSelector:before {
+    display: block;
+    position: absolute;
+    top: -24px;
+    font-size: 16px;
+    left: 0;
+    height: 20px;
+    line-height: 20px;
+    color: #eeeeee;
+}
+
+#blockSelector .subBlockSelector .content,
+#blockSelector .subBlockSelector .info,
+#submitSelector .subSubmitSelector .content,
+#submitSelector .subSubmitSelector .info {
+    position: absolute;
+}
+
+#subFloatBar #blockSelector {
+    float: left;
+    width: 30%;
+}
+
+#subFloatBar #blockSelector:before {
+    content: "OPERATION";
+}
+
+#blockSelector .subBlockSelector {
+    height: 100%;
+    width: 140px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#blockSelector .subBlockSelector .content {
+    top: 22px;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #eeeeee;
+    cursor: pointer;
+    text-align: center;
+}
+
+.subBlockSelector .content svg {
+    margin-top: 10px;
+    height: 80px;
+    width: 80px;
+}
+
+.subBlockSelector .content i {
+    color: #eeeeee;
+    font-size: 42px;
+    line-height: 100px;
+}
+
+#blockSelector .subBlockSelector .info {
+    bottom: 12px;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #eeeeee;
+}
+
+#subFloatBar #themeSelector {
+    float: right;
+    width: 40%;
+}
+
+#subFloatBar #themeSelector:before {
+    content: "THEMES";
+}
+
+#floatBar #subFloatBar #submitSelector {
+    float: right;
+    width: 10%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#subFloatBar #submitSelector:before {
+    content: "SUBMIT";
+}
+
+#subFloatBar #submitSelector .selection {
+    color: #eeeeee;
+    display: block;
+    font-size: 20px;
+    word-spacing: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    -webkit-transition: color .35s;
+    -moz-transition: color .35s;
+    -ms-transition: color .35s;
+    -o-transition: color .35s;
+    transition: color .35s;
+}
+
+#subFloatBar #submitSelector .selection:hover {
+    -webkit-animation: heart-beat 1.33s ease-in-out infinite;
+    -o-animation: heart-beat 1.33s ease-in-out infinite;
+    animation: heart-beat 1.33s ease-in-out infinite;
+    color: #2fddc6;
+}
+
+@keyframes heart-beat {
+    0%, 100% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    10%, 30% {
+        -webkit-transform: scale(.9);
+        -moz-transform: scale(.9);
+        -ms-transform: scale(.9);
+        -o-transform: scale(.9);
+        transform: scale(.9);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50%, 70% {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
 }
