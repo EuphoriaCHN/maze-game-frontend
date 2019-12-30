@@ -35,16 +35,16 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    border: 1px dashed rgba(213, 213, 213, 0.41);
+    border: 1px dashed rgba(213, 213, 213, 0.20);
     float: left;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    -webkit-transition: background-color .35s;
-    -moz-transition: background-color .35s;
-    -ms-transition: background-color .35s;
-    -o-transition: background-color .35s;
-    transition: background-color .35s;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    -ms-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -52,15 +52,45 @@
 }
 
 #mazeBody .wall {
-
+    background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
+                -webkit-linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
+    background: -moz-linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
+                -moz-linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
+    background: -o-linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
+                -o-linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
+    background: -ms-linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
+                -ms-linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 #mazeBody .start {
-
+    background: -webkit-linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
+            -webkit-linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
+    background: -moz-linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
+            -moz-linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
+    background: -o-linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
+            -o-linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
+    background: -ms-linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
+            -ms-linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
+    background: linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
+            linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
+    background-color: rgba(255, 255, 255, .3);
 }
 
 #mazeBody .end {
-
+    background: -webkit-linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
+            -webkit-linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%);
+    background: -moz-linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
+            -moz-linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%);
+    background: -o-linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
+            -o-linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%);
+    background: -ms-linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
+            -ms-linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%);
+    background: linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
+            linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, .1) 100%);
+    background-color: rgba(255, 255, 255, .3);
 }
 
 #main #floatBar h2 {

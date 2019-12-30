@@ -6,9 +6,6 @@
                 return false;
             case 1:
                 // building
-                target.css({
-                    backgroundColor: '#eeeeee',
-                });
                 // 如果和起点或终点冲突了
                 if (typeof window.startPoint !== 'undefined' && target.get(0) === window.startPoint.get(0)) {
                     window.startPoint = undefined;
@@ -16,55 +13,62 @@
                 if (typeof window.endPoint !== 'undefined' && target.get(0) === window.endPoint.get(0)) {
                     window.endPoint = undefined;
                 }
+                target.addClass('wall');
                 break;
             case 2:
                 // remove old start
                 if (typeof window.startPoint !== 'undefined') {
-                    window.startPoint.css({
-                        backgroundColor: 'transparent',
-                    });
+                    window.startPoint.removeClass('start');
+                    window.startPoint = undefined;
                 }
-                // set start
-                target.css({
-                    backgroundColor: '#46cf46',
-                });
-                // update start
-                window.startPoint = target;
                 // 如果起点和终点冲突了
                 if (typeof window.endPoint !== 'undefined' && target.get(0) === window.endPoint) {
+                    window.endPoint.removeClass('end');
                     window.endPoint = undefined;
                 }
+                // 如果这里本身是墙
+                if (target.hasClass('wall')) {
+                    target.removeClass('wall');
+                }
+                // set start
+                target.addClass('start');
+                // update start
+                window.startPoint = target;
                 break;
             case 3:
                 // remove old end
                 if (typeof window.endPoint !== 'undefined') {
-                    window.endPoint.css({
-                        backgroundColor: 'transparent',
-                    });
-                }
-                // set end
-                target.css({
-                    backgroundColor: '#ff0000',
-                });
-                // update end
-                window.endPoint = target;
-                // 如果终点和起点冲突了
-                if (typeof window.startPoint !== 'undefined' && target.get(0) === window.startPoint) {
-                    window.startPoint = undefined;
-                }
-                break;
-            case 4:
-                // remove
-                target.css({
-                    backgroundColor: 'transparent',
-                });
-                // 如果清除掉了起点或终点
-                if (typeof window.startPoint !== 'undefined' && target.get(0) === window.startPoint.get(0)) {
-                    window.startPoint = undefined;
-                }
-                if (typeof window.endPoint !== 'undefined' && target.get(0) === window.endPoint.get(0)) {
+                    window.endPoint.removeClass('end');
                     window.endPoint = undefined;
                 }
+                // 如果终点和起点冲突了
+                if (typeof window.startPoint !== 'undefined' && target.get(0) === window.startPoint) {
+                    window.startPoint.removeClass('start');
+                    window.startPoint = undefined;
+                }
+                // 如果这里本身是墙
+                if (target.hasClass('wall')) {
+                    target.removeClass('wall');
+                }
+                // set end
+                target.addClass('end');
+                // update end
+                window.endPoint = target;
+                break;
+            case 4:
+                // 如果清除掉了起点或终点
+                if (typeof window.startPoint !== 'undefined' && target.get(0) === window.startPoint.get(0)) {
+                    window.startPoint.removeClass('start');
+                    window.startPoint = undefined;
+                    return true;
+                }
+                if (typeof window.endPoint !== 'undefined' && target.get(0) === window.endPoint.get(0)) {
+                    window.endPoint.removeClass('end');
+                    window.endPoint = undefined;
+                    return true;
+                }
+                // remove
+                target.removeClass('wall');
                 break;
         }
         return true;
@@ -127,7 +131,7 @@
     };
 
     // 切换当前操作
-    $('#blockSelector .content').on('click', function (ev) {
+    $('#blockSelector .content').on('click', function () {
         let selectionId = $(this).attr('id');
         let title = $('h2 sub');
 
@@ -158,7 +162,7 @@
         if (attached.hasClass('col')) {
             // 处理单击事件
             if (!changeBlockStatus(attached)) {
-                this.stopPropagation();
+                $(this).stopPropagation();
                 return false;
             }
 
@@ -176,6 +180,24 @@
     }).on('mouseup', function (ev) {
         // 清除拖拽事件
         $(window).off('mousemove');
+    }).on('mouseover', function (ev) {
+        // 鼠标滑入
+        let attached = $(ev.target);
+        // 如果确实是某区块被划过
+        if (attached.hasClass('col')) {
+            attached.css({
+                border: '1px solid rgba(242, 242, 242, 1)',
+            });
+        }
+    }).on('mouseout', function (ev) {
+        // 鼠标滑出
+        let attached = $(ev.target);
+        // 如果确实是某区块被划过
+        if (attached.hasClass('col')) {
+            attached.css({
+                border: '1px dashed rgba(213, 213, 213, 0.20)',
+            });
+        }
     });
 
     // 提交
@@ -186,9 +208,16 @@
     // 清空
     $('#reset .selection').on('click', function (ev) {
         // 恢复选区颜色
-        $('.col').css({
-            backgroundColor: 'transparent',
-        });
+        let allCol = $('.col');
+        if (allCol.hasClass('wall')) {
+            allCol.removeClass('wall');
+        }
+        if (allCol.hasClass('start')) {
+            allCol.removeClass('start');
+        }
+        if (allCol.hasClass('end')) {
+            allCol.removeClass('end');
+        }
         // 清空起点和终点
         if (typeof window.startPoint !== 'undefined') {
             window.startPoint = undefined;
