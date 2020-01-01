@@ -135,3 +135,6 @@ dmypy.json
 js/jquery-3.4.1.js
 js/jquery-3.4.1.min.js
 js/TweenMax.min.js
+
+# Css Libraries
+css/font-awesome-4.7.0/
