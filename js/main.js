@@ -1,8 +1,14 @@
 (function (window, undefined) {
+    /**
+     * 当点击区块时，根据当前游戏状态做出响应
+     * @param target 区块 jQuery 对象
+     * @returns {boolean} 如果为观察者模式则返回 false
+     */
     let changeBlockStatus = target => {
         switch (window.gameStatus) {
             case 0:
-                window.alert('请先选择模式（鼠标移动至上方）');
+                window.drawTipsFloatBar('请先选择模式（鼠标移动至上方）', 'error-tips');
+                // window.alert('请先选择模式（鼠标移动至上方）');
                 return false;
             case 1:
                 // building
@@ -16,6 +22,7 @@
                 target.addClass('wall');
                 break;
             case 2:
+                // Set Start
                 // remove old start
                 if (typeof window.startPoint !== 'undefined') {
                     window.startPoint.removeClass('start');
@@ -36,6 +43,7 @@
                 window.startPoint = target;
                 break;
             case 3:
+                // Set End
                 // remove old end
                 if (typeof window.endPoint !== 'undefined') {
                     window.endPoint.removeClass('end');
@@ -56,6 +64,7 @@
                 window.endPoint = target;
                 break;
             case 4:
+                // Remove
                 // 如果清除掉了起点或终点
                 if (typeof window.startPoint !== 'undefined' && target.get(0) === window.startPoint.get(0)) {
                     window.startPoint.removeClass('start');
@@ -138,18 +147,22 @@
         switch (selectionId) {
             case 'building':
                 window.gameStatus = 1; // 正在造墙
+                window.drawTipsFloatBar('正在设置障碍物', 'info-tips');
                 title.text('building');
                 break;
             case 'begin':
                 window.gameStatus = 2; // 正在设置起点
+                window.drawTipsFloatBar('正在设置起点', 'info-tips');
                 title.text('set start');
                 break;
             case 'finish':
                 window.gameStatus = 3; // 正在设置终点
+                window.drawTipsFloatBar('正在设置终点', 'info-tips');
                 title.text('set end');
                 break;
             case 'clear':
                 window.gameStatus = 4; // 橡皮擦模式
+                window.drawTipsFloatBar('橡皮擦模式', 'info-tips');
                 title.text('remove');
                 break;
         }
@@ -162,7 +175,7 @@
         if (attached.hasClass('col')) {
             // 处理单击事件
             if (!changeBlockStatus(attached)) {
-                $(this).stopPropagation();
+                ev.stopPropagation();
                 return false;
             }
 

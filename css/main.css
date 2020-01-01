@@ -196,6 +196,17 @@
     border: 1px solid #eeeeee;
     cursor: pointer;
     text-align: center;
+    transition: all .3s;
+}
+
+#blockSelector .subBlockSelector .content:hover {
+    cursor: pointer;
+    border: 1px solid #2fddc6;
+    background-color: rgba(47, 221, 198, 0.11);
+}
+
+#blockSelector .subBlockSelector:hover .info {
+    color: #2fddc6;
 }
 
 .subBlockSelector .content svg {
