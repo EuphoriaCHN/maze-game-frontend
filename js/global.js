@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * 全局设置
+ */
 (function (window, undefined) {
     $(document.body).css({
         width: $(window).width(),
