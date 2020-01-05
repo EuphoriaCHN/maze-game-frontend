@@ -14,4 +14,8 @@
             height: $(this).height()
         });
     });
+
+    // 设置步数变化量
+    window.dx = [-1, 1, 0, 0];
+    window.dy = [0, 0, -1, 1];
 })(window, undefined);
