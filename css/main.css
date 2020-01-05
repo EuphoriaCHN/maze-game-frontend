@@ -52,45 +52,45 @@
 }
 
 #mazeBody .wall {
-    background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
-                -webkit-linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
-    background: -moz-linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
-                -moz-linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
-    background: -o-linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
-                -o-linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
-    background: -ms-linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
-                -ms-linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
-    background: linear-gradient(90deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%),
-    linear-gradient(180deg, rgba(255, 255, 255, .7) 10%, rgba(255, 255, 255, 0) 100%);
-    background-color: rgba(255, 255, 255, 0.25);
+    background: -webkit-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
+                -webkit-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    background: -moz-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
+                -moz-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    background: -o-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
+                -o-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    background: -ms-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
+                -ms-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    background: linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
+    linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    /*background-color: rgba(255, 255, 255, 0.25);*/
 }
 
 #mazeBody .start {
-    background: -webkit-linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
-            -webkit-linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
-    background: -moz-linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
-            -moz-linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
-    background: -o-linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
-            -o-linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
-    background: -ms-linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
-            -ms-linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
-    background: linear-gradient(90deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%),
-            linear-gradient(180deg, rgba(0, 255, 0, .5) 10%, rgba(0, 255, 0, .1) 100%);
-    background-color: rgba(255, 255, 255, .3);
+    background: -webkit-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
+            -webkit-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    background: -moz-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
+            -moz-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    background: -o-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
+            -o-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    background: -ms-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
+            -ms-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    background: linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
+            linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    /*background-color: rgba(255, 255, 255, .3);*/
 }
 
 #mazeBody .end {
-    background: -webkit-linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
-            -webkit-linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%);
-    background: -moz-linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
-            -moz-linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%);
-    background: -o-linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
-            -o-linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%);
-    background: -ms-linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
-            -ms-linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%);
-    background: linear-gradient(90deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, 0.1) 100%),
-            linear-gradient(180deg, rgba(255, 0, 0, .7) 10%, rgba(255, 0, 0, .1) 100%);
-    background-color: rgba(255, 255, 255, .3);
+    background: -webkit-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
+            -webkit-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
+    background: -moz-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
+            -moz-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
+    background: -o-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
+            -o-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
+    background: -ms-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
+            -ms-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
+    background: linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
+            linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, .2) 100%);
+    /*background-color: rgba(255, 255, 255, .3);*/
 }
 
 #main #floatBar h2 {

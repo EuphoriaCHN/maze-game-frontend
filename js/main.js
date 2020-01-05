@@ -231,6 +231,8 @@
         if (allCol.hasClass('end')) {
             allCol.removeClass('end');
         }
+        // 清空之后所设置的行内样式
+        allCol.css('backgroundColor', 'transparent');
         // 清空起点和终点
         if (typeof window.startPoint !== 'undefined') {
             window.startPoint = undefined;
