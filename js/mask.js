@@ -32,11 +32,13 @@
                     window.loadingMaze(); // 加载迷宫
                 }
 
+                // 缓动动画
                 let change = Math.floor(((1100 - width)) / 10);
                 if (change <= 10) {
                     change = 10;
                 }
 
+                // 设置缓动动画效果
                 mask.css({
                     width: width + change + 'px',
                     height: height + change + 'px',

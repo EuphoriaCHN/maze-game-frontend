@@ -1,3 +1,5 @@
+/*=== START 迷宫盒子 ===*/
+/*主框架*/
 #main {
     width: 100%;
     height: 100%;
@@ -10,6 +12,7 @@
     position: relative;
 }
 
+/*迷宫大盒子*/
 #maze {
     width: 100%;
     height: 100%;
@@ -25,12 +28,14 @@
     background-color: rgba(60, 60, 60, .3);
 }
 
+/*迷宫的每一行*/
 #mazeBody .row {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
+/*迷宫的每一格*/
 #mazeBody .col {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -51,6 +56,7 @@
     user-select: none;
 }
 
+/*墙体样式*/
 #mazeBody .wall {
     background: -webkit-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
     -webkit-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
@@ -65,6 +71,7 @@
     /*background-color: rgba(255, 255, 255, 0.25);*/
 }
 
+/*起点样式*/
 #mazeBody .start {
     background: -webkit-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
     -webkit-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
@@ -79,6 +86,7 @@
     /*background-color: rgba(255, 255, 255, .3);*/
 }
 
+/*终点样式*/
 #mazeBody .end {
     background: -webkit-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
     -webkit-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
@@ -92,7 +100,10 @@
     linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, .2) 100%);
     /*background-color: rgba(255, 255, 255, .3);*/
 }
+/*=== END 迷宫盒子 ===*/
 
+/*=== START 浮动窗口 ===*/
+/*浮动窗口副标题样式*/
 #main #floatBar h2 {
     position: absolute;
     width: 100%;
@@ -106,6 +117,7 @@
     font-size: 2em;
 }
 
+/*浮动栏中每一个子选项盒子*/
 #main #floatBar #subFloatBar {
     width: calc(100% - 40px);
     height: 0;
@@ -133,6 +145,7 @@
     height: 280px;
 }
 
+/*浮动栏子选项中的每一个选项*/
 #subFloatBar #blockSelector,
 #subFloatBar #themeSelector,
 #subFloatBar #submitSelector {
@@ -279,6 +292,7 @@
     color: #2fddc6;
 }
 
+/*心跳动画*/
 @keyframes heart-beat {
     0%, 100% {
         -webkit-transform: scale(1);
@@ -309,3 +323,5 @@
         transform: scale(1.1);
     }
 }
+
+/*=== END 浮动窗口 ===*/

@@ -83,6 +83,9 @@
         return true;
     };
 
+    /**
+     * 加载迷宫
+     */
     window.loadingMaze = function () {
         let maze = $('#maze');
         let mazeBody = $('#mazeBody');
@@ -123,8 +126,8 @@
             for (let j = 0; j < mazeCols; j++) {
                 let colDivision = $('<div></div>');
                 colDivision.css({
-                    width: eachColumnWidth,
-                    height: eachRowsHeight,
+                    width: eachColumnWidth + 'px',
+                    height: eachRowsHeight + 'px',
                 }).addClass('col');
                 // 装载每一列
                 rowDivision.append(colDivision);
@@ -132,6 +135,10 @@
             rowDivision.addClass('clearfix').addClass('row');
             mazeBody.append(rowDivision);
         }
+
+        // 设置迷宫区块宽高为全局变量
+        window.blockHeight = eachRowsHeight;
+        window.blockWidth = eachColumnWidth;
 
         // 初始化游戏属性
         window.gameStatus = 0; // 观察者模式
@@ -232,9 +239,8 @@
             allCol.removeClass('end');
         }
         // 清空路径
-        if (allCol.hasClass('line')) {
-            allCol.removeClass('line');
-        }
+        window.clearAnswersAnimation();
+
         // 清空起点和终点
         if (typeof window.startPoint !== 'undefined') {
             window.startPoint = undefined;

@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * 当页面处于并行加载 JS 脚本时的加载动画逻辑
+ */
 (function (window, undefined) {
     let nowLoading = document.getElementById('nowLoading');
     let loadingPointCounter = 0;
