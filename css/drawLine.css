@@ -1,4 +1,16 @@
-.line {
+/*为迷宫步伐提供样式*/
+.line-block {
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     background: url("../images/foot_03.svg") no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
