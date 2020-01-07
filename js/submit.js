@@ -2,8 +2,7 @@
 
 ((window, undefined) => {
     jQuery(() => {
-        let submitButton = $('#submit .selection');
-        submitButton.on('click', function (ev) {
+        window.submitMaze = function () {
             if (typeof window.startPoint === 'undefined') {
                 window.drawTipsFloatBar('你还没有设置起点哦', 'error-tips');
                 return false;
@@ -77,6 +76,7 @@
                     }
                     console.error(e);
                 });
-        });
+        };
+
     });
 })(window, undefined);

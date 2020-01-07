@@ -35,7 +35,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    border: 1px dashed rgba(213, 213, 213, 0.20);
+    border: 1px dashed rgba(213, 213, 213, 0.10);
     float: left;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -53,13 +53,13 @@
 
 #mazeBody .wall {
     background: -webkit-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
-                -webkit-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    -webkit-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
     background: -moz-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
-                -moz-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    -moz-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
     background: -o-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
-                -o-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    -o-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
     background: -ms-linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
-                -ms-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
+    -ms-linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
     background: linear-gradient(90deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%),
     linear-gradient(180deg, rgba(239, 157, 60, .8) 5%, rgba(239, 157, 60, 0.2) 100%);
     /*background-color: rgba(255, 255, 255, 0.25);*/
@@ -67,29 +67,29 @@
 
 #mazeBody .start {
     background: -webkit-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
-            -webkit-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    -webkit-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
     background: -moz-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
-            -moz-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    -moz-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
     background: -o-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
-            -o-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    -o-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
     background: -ms-linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
-            -ms-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    -ms-linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
     background: linear-gradient(90deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%),
-            linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
+    linear-gradient(180deg, rgba(45, 158, 240, .8) 5%, rgba(45, 158, 240, .2) 100%);
     /*background-color: rgba(255, 255, 255, .3);*/
 }
 
 #mazeBody .end {
     background: -webkit-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
-            -webkit-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
+    -webkit-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
     background: -moz-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
-            -moz-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
+    -moz-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
     background: -o-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
-            -o-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
+    -o-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
     background: -ms-linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
-            -ms-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
+    -ms-linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%);
     background: linear-gradient(90deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, 0.2) 100%),
-            linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, .2) 100%);
+    linear-gradient(180deg, rgba(87, 200, 135, .8) 5%, rgba(87, 200, 135, .2) 100%);
     /*background-color: rgba(255, 255, 255, .3);*/
 }
 

@@ -26,7 +26,7 @@
 
                 let now = $(eachRows.get(curRow).children[curCol]);
 
-                now.css('backgroundColor', 'yellow');
+                now.addClass('line');
             }, 50);
         };
     });

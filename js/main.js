@@ -208,14 +208,14 @@
         // 如果确实是某区块被划过
         if (attached.hasClass('col')) {
             attached.css({
-                border: '1px dashed rgba(213, 213, 213, 0.20)',
+                border: '1px dashed rgba(213, 213, 213, 0.10)',
             });
         }
     });
 
     // 提交
     $('#submit .selection').on('click', function (ev) {
-        // TODO ::
+        window.submitMaze();
     });
 
     // 清空
@@ -231,8 +231,10 @@
         if (allCol.hasClass('end')) {
             allCol.removeClass('end');
         }
-        // 清空之后所设置的行内样式
-        allCol.css('backgroundColor', 'transparent');
+        // 清空路径
+        if (allCol.hasClass('line')) {
+            allCol.removeClass('line');
+        }
         // 清空起点和终点
         if (typeof window.startPoint !== 'undefined') {
             window.startPoint = undefined;
