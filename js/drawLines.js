@@ -81,7 +81,6 @@
                 let decorationString = [window.dx[parseInt(steps[index]) - 1], window.dy[parseInt(steps[index]) - 1]].toString();
                 if (decorationString === decorations['UP']) {
                     // TOP
-                    console.log("TOP");
                     if (typeof before !== 'undefined') {
                         if (before === decorations['LEFT']) {
                             // 上一步是向左走的，现在往上走，那么脚印因该朝着左上
@@ -96,7 +95,6 @@
                     // 要么上一步也是向上的，图片本身就是向上的，不用旋转
                 } else if (decorationString === decorations['DOWN']) {
                     // DOWN
-                    console.log('DOWN');
                     if (typeof before !== 'undefined') {
                         if (before === decorations['DOWN']) {
                             // 上一步也是往下走的，那么这一步不变
@@ -117,7 +115,6 @@
                     }
                 } else if (decorationString === decorations['LEFT']) {
                     // LEFT
-                    console.log('LEFT');
                     if (typeof before !== 'undefined') {
                         if (before === decorations['LEFT']) {
                             // 上一步也是往左走的，那么这一步不变
@@ -138,7 +135,6 @@
                     }
                 } else {
                     // RIGHT
-                    console.log('RIGHT');
                     if (typeof before !== 'undefined') {
                         if (before === decorations['RIGHT']) {
                             // 上一步也是往右走的，那么这一步不变

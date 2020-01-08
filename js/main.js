@@ -1,5 +1,19 @@
 (function (window, undefined) {
     /**
+     * 获得被选中的区块，处理了脚印方框被选中时的兼容问题
+     * @param ev 事件对象
+     * @returns {*|jQuery.fn.init|jQuery|HTMLElement} 实际被选中的迷宫区块
+     */
+    let getAttached = ev => {
+        let attached = $(ev.target);
+        // 如果当前选择到的是一个脚印，那么向上选择其父元素（迷宫区块）
+        if (attached.hasClass('line-block')) {
+            attached = attached.parent();
+        }
+        return attached;
+    };
+
+    /**
      * 当点击区块时，根据当前游戏状态做出响应
      * @param target 区块 jQuery 对象
      * @returns {boolean} 如果为观察者模式则返回 false
@@ -182,11 +196,7 @@
 
     // 改变区块
     $('#mazeBody').on('mousedown', function (ev) {
-        let attached = $(ev.target);
-        // 如果当前选择到的是一个脚印，那么向上选择其父元素（迷宫区块）
-        if (attached.hasClass('line-block')) {
-            attached = attached.parent();
-        }
+        let attached = getAttached(ev);
         // 如果确实是某区块被选中
         if (attached.hasClass('col')) {
             // 处理单击事件
@@ -211,11 +221,7 @@
         $(window).off('mousemove');
         // 如果当前处于自动提交状态
         if (window.autoSubmit) {
-            let attached = $(ev.target);
-            // 如果当前选择到的是一个脚印，那么向上选择其父元素（迷宫区块）
-            if (attached.hasClass('line-block')) {
-                attached = attached.parent();
-            }
+            let attached = getAttached(ev);
             // 如果确实是一个迷宫区块被选中了
             if (attached.hasClass('col')) {
                 // 如果此时既设置了起点也设置了终点
@@ -229,7 +235,7 @@
         }
     }).on('mouseover', function (ev) {
         // 鼠标滑入
-        let attached = $(ev.target);
+        let attached = getAttached(ev);
         // 如果确实是某区块被划过
         if (attached.hasClass('col')) {
             attached.css({
@@ -238,12 +244,35 @@
         }
     }).on('mouseout', function (ev) {
         // 鼠标滑出
-        let attached = $(ev.target);
+        let attached = getAttached(ev);
         // 如果确实是某区块被划过
         if (attached.hasClass('col')) {
             attached.css({
                 border: '1px dashed rgba(213, 213, 213, 0.10)',
             });
+        }
+    }).on('mouseleave', function (ev) {
+        // 这里为了解决鼠标在拖拽时移动出去了，但 mouseout 事件存在着事件冒泡并不能很好的处理这件事
+        // 需要清除拖拽事件
+        if (typeof $._data(window, 'events')['mousemove'] !== 'undefined') {
+            // https://blog.csdn.net/weixin_30299539/article/details/95805980
+            // 如果当前确实有拖拽事件
+            $(window).off('mousemove');
+            // 既然已经移动出去，并且视为鼠标已经弹起，那么应该处理自动提交
+            // 如果当前处于自动提交状态
+            if (window.autoSubmit) {
+                let attached = getAttached(ev);
+                // 如果确实是一个迷宫区块被选中了
+                if (attached.hasClass('col')) {
+                    // 如果此时既设置了起点也设置了终点
+                    if (typeof window.startPoint !== 'undefined' && typeof window.endPoint !== 'undefined') {
+                        // 首先清空当前所有的路径，以避免请求返回了无路可走，随不调用绘画路径的结果
+                        window.clearAnswersAnimation();
+                        // 视为提交
+                        $('#submit .selection').click();
+                    }
+                }
+            }
         }
     });
 
