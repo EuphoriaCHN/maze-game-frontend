@@ -6,6 +6,8 @@
          * 清空路径动画
          */
         window.clearAnswersAnimation = function () {
+            // 停止当前正在创建路径的计时器
+            window.clearInterval(window.createLineTimer);
             // 格式化旧路径
             if (typeof window.answerLines === 'undefined') {
                 window.answerLines = [];
@@ -35,10 +37,10 @@
             // 步数游标，查询当前走向
             let index = 0;
 
-            var timer = window.setInterval(function () {
+            window.createLineTimer = window.setInterval(function () {
                 if (index === steps.length - 1) {
                     // 走到了终点前一个就退出，以防覆盖终点
-                    window.clearInterval(timer);
+                    window.clearInterval(window.createLineTimer);
                     return;
                 }
                 curRow += window.dx[parseInt(steps[index]) - 1];

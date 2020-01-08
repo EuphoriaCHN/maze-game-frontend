@@ -278,11 +278,11 @@
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
-    -webkit-transition: color .35s;
-    -moz-transition: color .35s;
-    -ms-transition: color .35s;
-    -o-transition: color .35s;
-    transition: color .35s;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    -ms-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
 }
 
 #subFloatBar #submitSelector .selection:hover {
@@ -290,6 +290,10 @@
     -o-animation: heart-beat 1.33s ease-in-out infinite;
     animation: heart-beat 1.33s ease-in-out infinite;
     color: #2fddc6;
+}
+
+#subFloatBar #submitSelector #auto .selection:hover {
+
 }
 
 /*心跳动画*/

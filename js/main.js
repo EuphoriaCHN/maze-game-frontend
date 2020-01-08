@@ -69,17 +69,21 @@
                 if (typeof window.startPoint !== 'undefined' && target.get(0) === window.startPoint.get(0)) {
                     window.startPoint.removeClass('start');
                     window.startPoint = undefined;
-                    return true;
+                    break;
                 }
                 if (typeof window.endPoint !== 'undefined' && target.get(0) === window.endPoint.get(0)) {
                     window.endPoint.removeClass('end');
                     window.endPoint = undefined;
-                    return true;
+                    break;
                 }
                 // remove
-                target.removeClass('wall');
+                if (target.hasClass('wall')) {
+                    target.removeClass('wall');
+                }
                 break;
         }
+        // 因为迷宫的状态发生了改变，可能会导致原先的路径不再使用，则需要清空
+        window.clearAnswersAnimation();
         return true;
     };
 
@@ -144,6 +148,7 @@
         window.gameStatus = 0; // 观察者模式
         window.startPoint = undefined; // 起点位置
         window.endPoint = undefined; // 终点位置
+        window.autoSubmit = false; // 自动提交
     };
 
     // 切换当前操作
@@ -178,6 +183,10 @@
     // 改变区块
     $('#mazeBody').on('mousedown', function (ev) {
         let attached = $(ev.target);
+        // 如果当前选择到的是一个脚印，那么向上选择其父元素（迷宫区块）
+        if (attached.hasClass('line-block')) {
+            attached = attached.parent();
+        }
         // 如果确实是某区块被选中
         if (attached.hasClass('col')) {
             // 处理单击事件
@@ -200,6 +209,24 @@
     }).on('mouseup', function (ev) {
         // 清除拖拽事件
         $(window).off('mousemove');
+        // 如果当前处于自动提交状态
+        if (window.autoSubmit) {
+            let attached = $(ev.target);
+            // 如果当前选择到的是一个脚印，那么向上选择其父元素（迷宫区块）
+            if (attached.hasClass('line-block')) {
+                attached = attached.parent();
+            }
+            // 如果确实是一个迷宫区块被选中了
+            if (attached.hasClass('col')) {
+                // 如果此时既设置了起点也设置了终点
+                if (typeof window.startPoint !== 'undefined' && typeof window.endPoint !== 'undefined') {
+                    // 首先清空当前所有的路径，以避免请求返回了无路可走，随不调用绘画路径的结果
+                    window.clearAnswersAnimation();
+                    // 视为提交
+                    $('#submit .selection').click();
+                }
+            }
+        }
     }).on('mouseover', function (ev) {
         // 鼠标滑入
         let attached = $(ev.target);
@@ -223,6 +250,26 @@
     // 提交
     $('#submit .selection').on('click', function (ev) {
         window.submitMaze();
+    });
+
+    // 将模式切换为自动提交 / 非自动提交
+    $('#auto .selection').on('click', function (ev) {
+        if (window.autoSubmit) {
+            // 如果原来为自动提交
+            window.drawTipsFloatBar('关闭自动寻路模式！', 'info-tips');
+            $(this).css({
+                animation: '',
+                color: ''
+            });
+        } else {
+            // 如果原来并非自动提交
+            window.drawTipsFloatBar('切换为自动寻路模式！', 'info-tips');
+            $(this).css({
+                animation: 'heart-beat 1.33s ease-in-out infinite',
+                color: '#2fddc6'
+            });
+        }
+        window.autoSubmit = !(window.autoSubmit);
     });
 
     // 清空
