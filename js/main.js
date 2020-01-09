@@ -110,8 +110,8 @@
         let mazeHeight = maze.height();
         let mazeWidth = maze.width();
 
-        window.mazeRows = 21;
-        window.mazeCols = 47; // 迷宫默认 11 行 21 列
+        window.mazeRows = 11;
+        window.mazeCols = 21; // 迷宫默认 11 行 21 列
 
         let eachColumnWidth = Math.floor(mazeWidth / mazeCols); // 计算出每一列的宽度
         let eachRowsHeight = Math.floor(mazeHeight / mazeRows); // 计算出每一行的高度
@@ -287,17 +287,21 @@
         if (window.autoSubmit) {
             // 如果原来为自动提交
             window.drawTipsFloatBar('关闭自动寻路模式！', 'info-tips');
-            $(this).css({
-                animation: '',
-                color: ''
-            });
+            // $(this).css({
+            //     animation: '',
+            //     color: ''
+            // });
+            $('#auto').removeClass('auto-active');
+            $('#auto .content svg').css('animation', '');
         } else {
             // 如果原来并非自动提交
             window.drawTipsFloatBar('切换为自动寻路模式！', 'info-tips');
-            $(this).css({
-                animation: 'heart-beat 1.33s ease-in-out infinite',
-                color: '#2fddc6'
-            });
+            // $(this).css({
+            //     animation: 'heart-beat 1.33s ease-in-out infinite',
+            //     color: '#2fddc6'
+            // });
+            $('#auto').addClass('auto-active');
+            $('#auto .content svg').css('animation', 'rotate-around 1.5s linear infinite');
         }
         window.autoSubmit = !(window.autoSubmit);
     });

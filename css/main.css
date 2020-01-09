@@ -251,35 +251,22 @@
     color: #eeeeee;
 }
 
-/*心跳动画*/
-@keyframes heart-beat {
-    0%, 100% {
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-        transform: scale(1);
+/*当 auto 被激活时，content 应该改样式*/
+.auto-active .content {
+    border: 1px solid #2fddc6!important;
+    background-color: rgba(47, 221, 198, 0.11)!important;
+}
+
+.auto-active .info {
+    color: #2fddc6!important;
+}
+
+@keyframes rotate-around {
+    from {
+        transform: rotate(0deg);
     }
-    10%, 30% {
-        -webkit-transform: scale(.9);
-        -moz-transform: scale(.9);
-        -ms-transform: scale(.9);
-        -o-transform: scale(.9);
-        transform: scale(.9);
-    }
-    20%, 40%, 60%, 80% {
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        -o-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-    50%, 70% {
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        -o-transform: scale(1.1);
-        transform: scale(1.1);
+    to {
+        transform: rotate(359deg);
     }
 }
 
