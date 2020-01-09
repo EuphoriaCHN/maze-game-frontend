@@ -14,6 +14,16 @@
             window.clearInterval(window.nowLoading.timingInterval);
             window.nowLoading.timingInterval = undefined;
 
+            // 添加在主页敲击回车进入效果
+            document.documentElement.onkeyup = ev => {
+                let e = ev || window.event;
+                let keyCode = e.code;
+                // 敲击了回车
+                if (keyCode === 'Enter' || keyCode === 'NumpadEnter') {
+                    $('#start').click();
+                }
+            };
+
             // TweenLite 闭包逻辑
             (function () {
                 if (typeof TweenLite !== 'undefined') {
@@ -45,6 +55,9 @@
                 if (animateUnderline.get(0).timingInterval) {
                     window.clearInterval(animateUnderline.get(0).timingInterval);
                 }
+
+                // 清除 document.documentElement 原先身上绑定的 keyup 事件
+                document.documentElement.onkeyup = null;
 
                 // 设定动画
                 animateUnderline.get(0).timingInterval = window.setInterval(function () {

@@ -169,6 +169,49 @@
         }
         window.startPoint = undefined; // 起点位置
         window.endPoint = undefined; // 终点位置
+
+        // 添加键盘响应事件
+        if (!(document.documentElement.onkeyup)) {
+            document.documentElement.onkeyup = ev => {
+                let e = ev || window.event;
+                let keyCode = e.code;
+                switch (keyCode) {
+                    case 'Minus':
+                    case 'NumpadMinus':
+                        // -
+                        // 缩小迷宫格（扩容）
+                        $('#expand').click();
+                        break;
+                    case 'Equal':
+                    case 'NumpadPlus':
+                        // +
+                        // 扩大迷宫格（裁剪）
+                        $('#narrow').click();
+                        break;
+                    case 'Enter':
+                    case 'NumpadEnter':
+                        // （回车）
+                        // 提交
+                        $('#submit').click();
+                        break;
+                    case 'KeyR':
+                        // r / R
+                        // 重置
+                        $('#reset').click();
+                        break;
+                    case 'KeyA':
+                        // a / A
+                        // 自动提交
+                        $('#auto').click();
+                        break;
+                    case 'Space':
+                        // （空格）
+                        // 随机生成迷宫
+                        $('#random').click();
+                        break;
+                }
+            };
+        }
     };
 
     // 切换当前操作
@@ -354,10 +397,10 @@
             let mazeBody = $('#mazeBody');
             window.mazeRows = nextRows;
             window.mazeCols = nextCols;
-            mazeBody.fadeOut(300, function () {
+            mazeBody.fadeOut(250, function () {
                 mazeBody.empty(); // 删除里面的所有子元素
                 window.loadingMaze(true);
-                mazeBody.fadeIn(300);
+                mazeBody.fadeIn(250);
             });
         }
     });
@@ -375,10 +418,10 @@
             let mazeBody = $('#mazeBody');
             window.mazeRows = nextRows;
             window.mazeCols = nextCols;
-            mazeBody.fadeOut(300, function () {
+            mazeBody.fadeOut(250, function () {
                 mazeBody.empty(); // 删除里面的所有子元素
                 window.loadingMaze(true);
-                mazeBody.fadeIn(300);
+                mazeBody.fadeIn(250);
             });
         }
     });
