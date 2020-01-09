@@ -146,9 +146,7 @@
 }
 
 /*浮动栏子选项中的每一个选项*/
-#subFloatBar #blockSelector,
-#subFloatBar #themeSelector,
-#subFloatBar #submitSelector {
+#subFloatBar .float-bar-main-selector {
     height: 170px;
     display: flex;
     justify-content: space-around;
@@ -158,9 +156,7 @@
     border-bottom: 2px solid #eeeeee;
 }
 
-#subFloatBar #blockSelector:before,
-#subFloatBar #themeSelector:before,
-#subFloatBar #submitSelector:before {
+#subFloatBar .float-bar-main-selector:before {
     display: block;
     position: absolute;
     top: -24px;
@@ -171,23 +167,30 @@
     color: #eeeeee;
 }
 
-#blockSelector .subBlockSelector .content,
-#blockSelector .subBlockSelector .info,
-#submitSelector .subSubmitSelector .content,
-#submitSelector .subSubmitSelector .info {
+.float-bar-main-selector .subBlockSelector .content,
+.float-bar-main-selector .subBlockSelector .info {
     position: absolute;
 }
 
 #subFloatBar #blockSelector {
     float: left;
-    width: 30%;
+    width: 35%;
 }
 
 #subFloatBar #blockSelector:before {
     content: "OPERATION";
 }
 
-#blockSelector .subBlockSelector {
+#subFloatBar #submitSelector {
+    float: right;
+    width: 50%;
+}
+
+#subFloatBar #submitSelector:before {
+    content: "OPTIONS";
+}
+
+.float-bar-main-selector .subBlockSelector {
     height: 100%;
     width: 140px;
     display: inline-block;
@@ -197,7 +200,7 @@
     position: relative;
 }
 
-#blockSelector .subBlockSelector .content {
+.float-bar-main-selector .subBlockSelector .content {
     top: 22px;
     left: 50%;
     margin-left: -50px;
@@ -212,13 +215,14 @@
     transition: all .3s;
 }
 
-#blockSelector .subBlockSelector .content:hover {
+.float-bar-main-selector .subBlockSelector:hover .content {
     cursor: pointer;
     border: 1px solid #2fddc6;
     background-color: rgba(47, 221, 198, 0.11);
 }
 
-#blockSelector .subBlockSelector:hover .info {
+.float-bar-main-selector .subBlockSelector:hover .info {
+    cursor: pointer;
     color: #2fddc6;
 }
 
@@ -234,7 +238,7 @@
     line-height: 100px;
 }
 
-#blockSelector .subBlockSelector .info {
+.float-bar-main-selector .subBlockSelector .info {
     bottom: 12px;
     width: 100%;
     height: 20px;
@@ -245,55 +249,6 @@
     -ms-user-select: none;
     user-select: none;
     color: #eeeeee;
-}
-
-#subFloatBar #themeSelector {
-    float: right;
-    width: 40%;
-}
-
-#subFloatBar #themeSelector:before {
-    content: "THEMES";
-}
-
-#floatBar #subFloatBar #submitSelector {
-    float: right;
-    width: 10%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-#subFloatBar #submitSelector:before {
-    content: "SUBMIT";
-}
-
-#subFloatBar #submitSelector .selection {
-    color: #eeeeee;
-    display: block;
-    font-size: 20px;
-    word-spacing: 3px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: pointer;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    -ms-transition: all .35s;
-    -o-transition: all .35s;
-    transition: all .35s;
-}
-
-#subFloatBar #submitSelector .selection:hover {
-    -webkit-animation: heart-beat 1.33s ease-in-out infinite;
-    -o-animation: heart-beat 1.33s ease-in-out infinite;
-    animation: heart-beat 1.33s ease-in-out infinite;
-    color: #2fddc6;
-}
-
-#subFloatBar #submitSelector #auto .selection:hover {
-
 }
 
 /*心跳动画*/

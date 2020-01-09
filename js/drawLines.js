@@ -67,8 +67,12 @@
                 index += 1;
 
                 let now = $(eachRows.get(curRow).children[curCol]);
+
                 let offset = 24; // 把这个元素缩小（要不然图片太大）
 
+                if (window.blockHeight < 25) {
+                    offset = 0; // 如果迷宫格子本身就很小了，那么就不要缩放了
+                }
                 // 直接将这个路径节点添加到当前迷宫区块内作为一个子元素存在
                 let newStep = $("<div></div>");
                 newStep.addClass('line-block').css({

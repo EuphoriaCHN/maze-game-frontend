@@ -110,7 +110,7 @@
         let mazeHeight = maze.height();
         let mazeWidth = maze.width();
 
-        let mazeRows = 10, mazeCols = 20; // 迷宫默认10行20列
+        let mazeRows = 11, mazeCols = 23; // 迷宫默认 11 行 21 列
 
         let eachColumnWidth = Math.floor(mazeWidth / mazeCols); // 计算出每一列的宽度
         let eachRowsHeight = Math.floor(mazeHeight / mazeRows); // 计算出每一行的高度
@@ -229,7 +229,7 @@
                     // 首先清空当前所有的路径，以避免请求返回了无路可走，随不调用绘画路径的结果
                     window.clearAnswersAnimation();
                     // 视为提交
-                    $('#submit .selection').click();
+                    $('#submit').click();
                 }
             }
         }
@@ -269,7 +269,7 @@
                         // 首先清空当前所有的路径，以避免请求返回了无路可走，随不调用绘画路径的结果
                         window.clearAnswersAnimation();
                         // 视为提交
-                        $('#submit .selection').click();
+                        $('#submit').click();
                     }
                 }
             }
@@ -277,12 +277,12 @@
     });
 
     // 提交
-    $('#submit .selection').on('click', function (ev) {
+    $('#submit').on('click', function (ev) {
         window.submitMaze();
     });
 
     // 将模式切换为自动提交 / 非自动提交
-    $('#auto .selection').on('click', function (ev) {
+    $('#auto').on('click', function (ev) {
         if (window.autoSubmit) {
             // 如果原来为自动提交
             window.drawTipsFloatBar('关闭自动寻路模式！', 'info-tips');
@@ -302,7 +302,7 @@
     });
 
     // 清空
-    $('#reset .selection').on('click', function (ev) {
+    $('#reset').on('click', function (ev) {
         // 恢复选区颜色
         let allCol = $('.col');
         if (allCol.hasClass('wall')) {
