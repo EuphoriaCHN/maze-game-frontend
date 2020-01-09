@@ -55,7 +55,7 @@
                 // 发送请求
                 jQuery.ajax({
                     // url: 'http://maze.wqh4u.cn/api/gettingMaze',
-                    url: 'http://127.0.0.1:8000/api/gettingMaze',
+                    url: 'http://localhost:8000/api/gettingMaze',
                     dataType: 'text',
                     type: 'POST',
                     data: {
@@ -72,6 +72,7 @@
                 });
             })
                 .then(function (res) {
+                    res = $.parseJSON(res);
                     if (res.length === 0) {
                         // 如果返回了一个空列表则代表没有去终点的方法
                         window.drawTipsFloatBar('无路可走！', 'error-tips');
@@ -84,7 +85,7 @@
                     }
                     return true;
                 }, function (e) {
-                    if (e.statusText) {
+                    if (e && e.statusText) {
                         window.drawTipsFloatBar(e.statusText, 'error-tips');
                     } else {
                         window.drawTipsFloatBar('服务器错误，请稍后再试哦~', 'error-tips');
@@ -94,5 +95,43 @@
                 });
         };
 
+        /**
+         * 获取随机的一个迷宫
+         */
+        window.getRandomMaze = function () {
+            new Promise((resolve, reject) => {
+                jQuery.ajax({
+                    // url: 'http://maze.wqh4u.cn/api/randomMaze',
+                    url: 'http://localhost:8000/api/randomMaze',
+                    dataType: 'text',
+                    type: 'POST',
+                    data: {
+                        rowNumber: JSON.stringify(window.mazeRows),
+                        colNumber: JSON.stringify(window.mazeCols),
+                    },
+                    success: function (res) {
+                        resolve(res);
+                    },
+                    error: function (e) {
+                        reject(e);
+                    }
+                });
+            }).then(data => {
+                data = $.parseJSON(data);
+                if (data.status === 500) {
+                    window.drawTipsFloatBar(data.data, 'error-tips');
+                }　else {
+                    window.createRandomMaze(data.data);
+                }
+            }, e => {
+                if (e && e.statusText) {
+                    window.drawTipsFloatBar(e.statusText, 'error-tips');
+                } else {
+                    window.drawTipsFloatBar('服务器错误，请稍后再试哦~', 'error-tips');
+                }
+                console.error(e);
+                return false;
+            });
+        }
     });
 })(window, undefined);

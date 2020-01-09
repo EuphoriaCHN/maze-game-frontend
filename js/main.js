@@ -110,7 +110,8 @@
         let mazeHeight = maze.height();
         let mazeWidth = maze.width();
 
-        let mazeRows = 11, mazeCols = 23; // 迷宫默认 11 行 21 列
+        window.mazeRows = 21;
+        window.mazeCols = 47; // 迷宫默认 11 行 21 列
 
         let eachColumnWidth = Math.floor(mazeWidth / mazeCols); // 计算出每一列的宽度
         let eachRowsHeight = Math.floor(mazeHeight / mazeRows); // 计算出每一行的高度
@@ -325,4 +326,9 @@
             window.endPoint = undefined;
         }
     });
+
+    // 获取随机迷宫
+    $('#random').on('click', function (ev) {
+        window.getRandomMaze();
+    })
 })(window, undefined);
