@@ -29,7 +29,7 @@
                         display: 'flex'
                     }); // 加载主体
 
-                    window.loadingMaze(); // 加载迷宫
+                    window.loadingMaze(false); // 加载迷宫
                 }
 
                 // 缓动动画

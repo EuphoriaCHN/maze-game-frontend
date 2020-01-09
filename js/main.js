@@ -103,15 +103,18 @@
 
     /**
      * 加载迷宫
+     * @param resetFlag 如果为 true，则为扩容二次加载
      */
-    window.loadingMaze = function () {
+    window.loadingMaze = function (resetFlag) {
         let maze = $('#maze');
         let mazeBody = $('#mazeBody');
         let mazeHeight = maze.height();
         let mazeWidth = maze.width();
 
-        window.mazeRows = 11;
-        window.mazeCols = 21; // 迷宫默认 11 行 21 列
+        if (!resetFlag) {
+            window.mazeRows = 11;
+            window.mazeCols = 21; // 迷宫默认 11 行 21 列
+        }
 
         let eachColumnWidth = Math.floor(mazeWidth / mazeCols); // 计算出每一列的宽度
         let eachRowsHeight = Math.floor(mazeHeight / mazeRows); // 计算出每一行的高度
@@ -159,11 +162,13 @@
         window.blockHeight = eachRowsHeight;
         window.blockWidth = eachColumnWidth;
 
-        // 初始化游戏属性
-        window.gameStatus = 0; // 观察者模式
+        if (resetFlag) {
+            // 初始化游戏属性
+            window.gameStatus = 0; // 观察者模式
+            window.autoSubmit = false; // 自动提交
+        }
         window.startPoint = undefined; // 起点位置
         window.endPoint = undefined; // 终点位置
-        window.autoSubmit = false; // 自动提交
     };
 
     // 切换当前操作
@@ -334,5 +339,47 @@
     // 获取随机迷宫
     $('#random').on('click', function (ev) {
         window.getRandomMaze();
-    })
+    });
+
+    // 迷宫扩容
+    $('#expand').on('click', function (ev) {
+        let nextRows = window.mazeRows + 2;
+        let nextCols = window.mazeCols + 2;
+        if (nextRows > 41 || nextCols > 31) {
+            window.drawTipsFloatBar('迷宫方格太小啦！看不见啦！', 'error-tips');
+        } else {
+            // 首先删除当前路径
+            window.clearAnswersAnimation();
+
+            let mazeBody = $('#mazeBody');
+            window.mazeRows = nextRows;
+            window.mazeCols = nextCols;
+            mazeBody.fadeOut(300, function () {
+                mazeBody.empty(); // 删除里面的所有子元素
+                window.loadingMaze(true);
+                mazeBody.fadeIn(300);
+            });
+        }
+    });
+
+    // 迷宫裁剪
+    $('#narrow').on('click', function (ev) {
+        let nextRows = window.mazeRows - 2;
+        let nextCols = window.mazeCols - 2;
+        if (nextRows < 3 || nextCols < 15) {
+            window.drawTipsFloatBar('迷宫方格太大啦！装不下啦！', 'error-tips');
+        } else {
+            // 首先删除当前路径
+            window.clearAnswersAnimation();
+
+            let mazeBody = $('#mazeBody');
+            window.mazeRows = nextRows;
+            window.mazeCols = nextCols;
+            mazeBody.fadeOut(300, function () {
+                mazeBody.empty(); // 删除里面的所有子元素
+                window.loadingMaze(true);
+                mazeBody.fadeIn(300);
+            });
+        }
+    });
 })(window, undefined);
